@@ -1,0 +1,388 @@
+.sections .navbar-nav {
+    flex-direction: row;
+}
+
+.sections .navbar-nav li:first-of-type .nav-link {
+    color: var(--text-color);
+}
+
+main {
+    padding-top: 80px;
+    background-image: url('../img/consultation-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0 5%;
+}
+
+.login-form {
+    background-image: none;
+}
+
+.worry {
+    position: relative;
+}
+
+.worry .info {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    margin-top: 10vh
+}
+
+.float-card {
+    position: absolute;
+    bottom: 8vh;
+}
+
+.float-card a {
+    margin-right: -10px;
+}
+
+.float-card a img {
+    width: 148px;
+}
+
+.title-lg,
+.title-md {
+    margin-bottom: 1rem;
+}
+
+.consultant-card {
+    background-image: linear-gradient(270deg, #f0f0f040, #ffffff42);
+    border-radius: 19px;
+    padding: 12px;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.consultant-card p {
+    color: var(--text-color);
+    max-width: 310px;
+    font-size: 14px;
+    max-height: 42px;
+    overflow: hidden;
+}
+
+.consultant-card img {
+    width: 70px;
+    border-radius: 50%;
+    height: 70px;
+}
+
+.confused {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confused img {
+    height: 90vh;
+    margin-left: -30px;
+}
+.help{
+    display: flex;
+    align-items: center;
+}
+.help p {
+    margin: 1rem 0 2rem;
+}
+.help .product-card .details p {
+        margin: 0;
+}
+.help .bg-light-gray{
+    height: fit-content;
+border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.consultant {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+}
+
+span.active {
+    box-shadow: -1px -2px 14px #00000061;
+    background-color: var(--green);
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    bottom: 4px;
+    right: 6px;
+}
+
+.card-bot {
+    border-top: 1px solid #eee;
+    width: 100%;
+    padding-top: 12px;
+}
+
+.card-bot ul {
+    flex-wrap: wrap;
+}
+
+.time-slot {
+    background-color: white;
+    border-color: #eee;
+    color: var(--text-color);
+    padding: 4px 8px;
+    border-radius: 8px;
+    margin: 4px 4px 0 0;
+}
+
+.time-slot:hover,
+.time-slot.active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+
+.join {
+    background-image: url('../img/background-pattern-sm.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.join .d-flex {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.join .title-md {
+    line-height: 63px;
+}
+
+
+#calendar {
+    width: 100%;
+}
+
+table.fc-scrollgrid {
+    border-radius: 10px;
+}
+
+.fc .fc-daygrid-day-number {
+    padding: 2px 0 0 0;
+    margin: auto;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: var(--light-primary);
+    height: 24px;
+
+}
+
+.fc .fc-daygrid-day {
+    height: 24px;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 12px;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events,
+.fc-daygrid-day-bg {
+    min-height: 0;
+    display: none;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 24px;
+}
+
+.fc .fc-button-group {
+    gap: 2px;
+}
+
+.fc .fc-button:disabled {
+    opacity: 1;
+}
+
+.fc .fc-button-primary {
+    border: none;
+    border-radius: 2.25em;
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 0;
+    padding: 3px;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    border: none;
+}
+
+.fc .fc-button-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.fc-today-button.fc-button-primary {
+    font-family: 'DG-lig';
+    border-width: 1px;
+    border-radius: 18px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+    --bs-btn-disabled-opacity: 0.65;
+    --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+    border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    padding: 14.25px 16px;
+    font-size: 14px;
+    border-color: var(--primary-color);
+}
+
+#free-time-inputs {
+    list-style: none;
+    position: relative;
+    padding-left: 37px;
+    flex-wrap: nowrap;
+    gap: 1%;
+}
+
+#free-time-inputs li {
+    width: 32%;
+}
+
+#free-time-inputs button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 7px 14px;
+    background-color: white;
+}
+
+#day-info {
+    margin-top: 20px;
+}
+
+#free-time-inputs {
+    display: none;
+}
+
+
+@media (max-width:1200px) {
+    .worry .title-lg {
+        font-size: 38px;
+    }
+
+    .confused img {
+        height: auto;
+    }
+
+    .consultant-card p {
+        max-width: 242px;
+    }
+}
+
+@media (max-width:992px) {
+    .sections .nav-item {
+        width: fit-content;
+    }
+
+    .worry .info {
+        gap: 16px;
+        margin-top: 4vh;
+    }
+
+    .worry .title-lg,
+    .worry .title-sm {
+        text-align: center;
+    }
+
+    .worry .buttons {
+        justify-content: center;
+    }
+
+    .float-card {
+        position: relative;
+        bottom: unset;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .confused img {
+        margin-left: 0;
+    }
+
+    .consultant .consultant-card {
+        width: 100%;
+    }
+
+    .consultant .consultant-card p {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .consultant .consultant-info {
+        margin: 6px 0;
+    }
+
+    .consultant .consultant-info .d-flex {
+        justify-content: center;
+    }
+
+    .consultant .card-head {
+        display: flex;
+        align-items: center;
+        position: relative;
+        flex-direction: column;
+    }
+
+    span.active {
+        bottom: unset;
+        right: unset;
+        margin-right: -44px;
+        top: 55px;
+    }
+}
+
+@media (max-width: 576px) {
+    .worry .title-lg {
+        font-size: 28px;
+    }
+    .title-lg {
+        margin-bottom: 0rem;
+    }
+    .title-sm {
+        font-size: 18px;
+    }
+    .consultant .consultant-card {
+        width: 90%;
+        margin: 0 auto 1rem;
+    }
+    .join .d-flex {
+        gap: 1rem;
+    }
+    .join .title-md {
+        line-height: 44px;
+    }
+    .sections .nav-link{
+        padding: 4px 6px 0;
+        font-size: 12px;
+    }
+}
+
+@media (max-width:400px) {
+    .form {
+        padding: 1.5rem 1rem;
+    }
+}

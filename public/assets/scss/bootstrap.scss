@@ -1,0 +1,25 @@
+/******* Customized Bootstrap ********/
+
+$bs-primary: #0CC1E0;
+$bs-light: #F7F8FA;
+$bs-dark: #3a3a3a;
+
+$font-family-base: 'Poppins', sans-serif;
+
+$body-bg: $bs-light;
+
+$body-color: #717171;
+
+$headings-color: $bs-dark;
+
+$headings-font-weight: 700;
+
+$enable-responsive-font-sizes: true;
+
+$border-radius: 10px;
+
+$link-decoration: none;
+
+$enable-negative-margins: true;
+
+@import "bootstrap/scss/bootstrap";
