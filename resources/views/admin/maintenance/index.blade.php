@@ -88,6 +88,17 @@
                                 @include('admin.maintenance.partials.status', ['status' => $selected->status])
                             </div>
 
+                            <div class="d-flex flex-wrap gap-2 mt-3">
+                                <a href="{{ route('repair.track', $selected->tracking_token) }}" target="_blank"
+                                    class="btn btn-sm btn-outline-info">
+                                    <i class="fa fa-external-link-alt me-1"></i> فتح صفحة تتبع العميل
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-secondary"
+                                    onclick="navigator.clipboard.writeText('{{ route('repair.track', $selected->tracking_token) }}'); this.textContent='تم نسخ الرابط ✓';">
+                                    <i class="fa fa-copy me-1"></i> نسخ رابط التتبع
+                                </button>
+                            </div>
+
                             @if($selected->problem)
                                 <hr><strong>الملاحظات:</strong> <span class="text-muted">{{ $selected->problem }}</span>
                             @endif
