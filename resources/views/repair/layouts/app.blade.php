@@ -75,7 +75,7 @@
         .brand-lockup { display: flex; align-items: center; gap: 14px; }
 
         .brand-logo {
-            width: 54px; height: 54px; object-fit: contain;
+            height: 48px; width: auto; max-width: 130px; object-fit: contain;
             filter: drop-shadow(0 0 10px rgba(0, 200, 200, 0.6));
         }
 
@@ -245,7 +245,8 @@
 <body>
     <header>
         <div class="brand-lockup">
-            <img class="brand-logo" src="{{ asset('logo.svg') }}" alt="Special PC" onerror="this.style.display='none'">
+            <img class="brand-logo" src="{{ asset('assets/ecommerce/img/special-pc-logo-white.png') }}"
+                alt="Special PC" onerror="this.onerror=null;this.src='{{ asset('assets/img/brand/logo.png') }}'">
             <div>
                 <strong>SPECIAL PC</strong><br>
                 <span>{{ $subtitle ?? 'مركز الصيانة وتركيب الأجهزة' }}</span>
