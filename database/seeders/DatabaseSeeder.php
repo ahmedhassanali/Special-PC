@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             UnitsTableSeeder::class,
             ProductsTableSeeder::class,
             OffersTableSeeder::class,
+            MaintenanceServiceSeeder::class,
+            MaintenancePermissionSeeder::class,
         ]);
     }
 }

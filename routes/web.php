@@ -13,6 +13,8 @@ use App\Http\Controllers\Ecommerce\OrderController;
 use App\Http\Controllers\Ecommerce\PaymentCardController;
 use App\Http\Controllers\Ecommerce\ProductController;
 use App\Http\Controllers\Ecommerce\ConsultationController;
+use App\Http\Controllers\Ecommerce\RepairOrderController;
+use App\Http\Controllers\Ecommerce\RepairTrackingController;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReferralController;
@@ -33,6 +35,17 @@ require __DIR__ . '/admin.php';
  */
 
 Auth::routes();
+
+/*
+| Maintenance / Repair Orders (public, tracked by token)
+*/
+Route::prefix('repair')->name('repair.')->group(function () {
+    Route::get('/', [RepairOrderController::class, 'create'])->name('create');
+    Route::post('/', [RepairOrderController::class, 'store'])->middleware('throttle:10,1')->name('store');
+    Route::get('/track/{token}', [RepairTrackingController::class, 'show'])->name('track');
+    Route::post('/track/{token}/extras/{extra}', [RepairTrackingController::class, 'decideExtra'])
+        ->middleware('throttle:20,1')->name('extras.decide');
+});
 
 Route::get('/ref/{ref}', [ReferralController::class, 'handleReferral'])
     ->name('ref')
