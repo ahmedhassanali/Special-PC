@@ -277,6 +277,17 @@ class UserRole extends Model
             'admin.marketers.show',
         ],
 
+        '25' => [
+            'admin.maintenance.index',
+            'admin.maintenance.orders.update',
+            'admin.maintenance.orders.extras.store',
+            'admin.maintenance.orders.images.store',
+            'admin.maintenance.orders.images.delete',
+            'admin.maintenance.services.index',
+            'admin.maintenance.services.store',
+            'admin.maintenance.services.update',
+        ],
+
     ];
 
     protected $navbar = [
@@ -485,6 +496,27 @@ class UserRole extends Model
                     'icon' => 'fa fa-image me-2',
                 ],
             ]
+        ],
+
+        '7' => [
+            'title' => 'Maintenance',
+            'ar_title' => 'الصيانة',
+            'route' => 'admin.maintenance.index',
+            'icon' => 'fa fa-tools me-2',
+            'items' => [
+                [
+                    'title' => 'Repair Orders',
+                    'ar_title' => 'طلبات الصيانة',
+                    'route' => 'admin.maintenance.index',
+                    'icon' => 'fa fa-screwdriver-wrench me-2',
+                ],
+                [
+                    'title' => 'Services',
+                    'ar_title' => 'خدمات الصيانة',
+                    'route' => 'admin.maintenance.services.index',
+                    'icon' => 'fa fa-list me-2',
+                ],
+            ],
         ]
     ];
 

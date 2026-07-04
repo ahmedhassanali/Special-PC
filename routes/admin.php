@@ -26,7 +26,9 @@ use App\Http\Controllers\Admin\{
     SliderController,
     CartController,
     TranslationController,
-    MarketerController
+    MarketerController,
+    MaintenanceController,
+    MaintenanceServiceController
 };
 
 use App\Http\Controllers\HomeController as controllerHomeController;
@@ -53,6 +55,21 @@ Route::group(['prefix' => 'notification'], function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth', 'user.log']], function () {
     // dashboard page
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.index');
+
+    // Maintenance / Repair Orders
+    Route::group(['prefix' => 'maintenance'], function () {
+        Route::get('/', [MaintenanceController::class, 'index'])->name('admin.maintenance.index');
+        Route::patch('/orders/{order}', [MaintenanceController::class, 'updateOrder'])->name('admin.maintenance.orders.update');
+        Route::post('/orders/{order}/extras', [MaintenanceController::class, 'addExtra'])->name('admin.maintenance.orders.extras.store');
+        Route::post('/orders/{order}/images', [MaintenanceController::class, 'uploadImages'])->name('admin.maintenance.orders.images.store');
+        Route::delete('/orders/{order}/images/{image}', [MaintenanceController::class, 'deleteImage'])->name('admin.maintenance.orders.images.delete');
+
+        Route::controller(MaintenanceServiceController::class)->prefix('services')->group(function () {
+            Route::get('/', 'index')->name('admin.maintenance.services.index');
+            Route::post('/', 'store')->name('admin.maintenance.services.store');
+            Route::patch('/{service}', 'update')->name('admin.maintenance.services.update');
+        });
+    });
 
 
     // Setting Route Group
