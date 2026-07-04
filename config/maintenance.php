@@ -47,4 +47,8 @@ return [
         'air' => 150,
         'water' => 200,
     ],
+
+    // Default country code used to normalise local (05xxxxxxxx) numbers into
+    // international wa.me links. 966 = Saudi Arabia.
+    'whatsapp_country_code' => '966',
 ];

@@ -77,6 +77,11 @@
             {{-- Selected order detail --}}
             <div class="col-lg-6">
                 @if($selected)
+                    @php
+                        $statusLabels = ['waiting' => 'قيد الانتظار', 'working' => 'جاري العمل', 'done' => 'منتهي', 'delivered' => 'تم التسليم'];
+                        $waTracking = "مرحباً {$selected->customer_name}\nرابط تتبع طلبك {$selected->order_number}:\n{$selected->tracking_url}";
+                        $waStatus = "مرحباً {$selected->customer_name}\nتم تحديث حالة طلبك {$selected->order_number} إلى: ".($statusLabels[$selected->status] ?? $selected->status)."\nرابط التتبع: {$selected->tracking_url}";
+                    @endphp
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-start">
@@ -97,6 +102,14 @@
                                     onclick="navigator.clipboard.writeText('{{ route('repair.track', $selected->tracking_token) }}'); this.textContent='تم نسخ الرابط ✓';">
                                     <i class="fa fa-copy me-1"></i> نسخ رابط التتبع
                                 </button>
+                                <a href="{{ $selected->whatsappUrl($waTracking) }}" target="_blank" rel="noopener"
+                                    class="btn btn-sm text-white" style="background:#128c7e">
+                                    <i class="fab fa-whatsapp me-1"></i> واتساب رابط التتبع
+                                </a>
+                                <a href="{{ $selected->whatsappUrl($waStatus) }}" target="_blank" rel="noopener"
+                                    class="btn btn-sm text-white" style="background:#128c7e">
+                                    <i class="fab fa-whatsapp me-1"></i> واتساب الحالة
+                                </a>
                             </div>
 
                             @if($selected->problem)
@@ -151,9 +164,20 @@
                         <div class="card-body">
                             <h6 class="mb-3">إضافة تكلفة إضافية</h6>
                             @foreach($selected->extras as $extra)
-                                <div class="d-flex justify-content-between align-items-center border rounded p-2 mb-2">
+                                <div class="d-flex justify-content-between align-items-center border rounded p-2 mb-2 gap-2">
                                     <span>{{ $extra->name }} — {{ number_format($extra->price) }} ريال</span>
-                                    @include('admin.maintenance.partials.extra-status', ['status' => $extra->status])
+                                    <div class="d-flex align-items-center gap-2">
+                                        @include('admin.maintenance.partials.extra-status', ['status' => $extra->status])
+                                        @if($extra->status === 'pending')
+                                            @php
+                                                $waExtra = "مرحباً {$selected->customer_name}\nيوجد طلب موافقة على خدمة إضافية:\n{$extra->name} - ".number_format($extra->price)." ريال\nفضلاً افتح رابط التتبع للموافقة أو الرفض:\n{$selected->tracking_url}";
+                                            @endphp
+                                            <a href="{{ $selected->whatsappUrl($waExtra) }}" target="_blank" rel="noopener"
+                                                class="btn btn-sm text-white" style="background:#128c7e" title="إرسال طلب الموافقة عبر واتساب">
+                                                <i class="fab fa-whatsapp"></i>
+                                            </a>
+                                        @endif
+                                    </div>
                                 </div>
                             @endforeach
                             <form method="post" action="{{ route('admin.maintenance.orders.extras.store', $selected->id) }}">
